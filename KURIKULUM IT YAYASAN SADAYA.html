@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap Kurikulum IT & AI (Grade A-Z)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        phase1: '#06b6d4', // Cyan
+                        phase2: '#10b981', // Emerald
+                        phase3: '#f59e0b', // Amber
+                        phase4: '#8b5cf6', // Purple
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(51, 65, 85, 0.8);
+            border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(71, 85, 105, 1);
+        }
+        .glow-phase1 { box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.3); }
+        .glow-phase2 { box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.3); }
+        .glow-phase3 { box-shadow: 0 0 20px -5px rgba(245, 158, 11, 0.3); }
+        .glow-phase4 { box-shadow: 0 0 20px -5px rgba(139, 92, 246, 0.3); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-white transition-colors duration-300">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-cyan-500/20">
+                    A-Z
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight text-slate-100">Modul Pembelajaran IT & AI</h1>
+                    <p class="text-xs text-slate-400 hidden sm:block">Kurikulum Terstruktur Berbasis Grade (A–Z)</p>
+					<p class="text-xs text-slate-400 hidden sm:block">YAYASAN NUSANTARA MUDA ADNYANA</p>
+                </div>
+            </div>
+
+            <!-- Stats & Progress -->
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex flex-col items-end w-44">
+                    <div class="flex justify-between w-full text-xs font-medium mb-1">
+                        <span class="text-slate-400">Progres Belajar</span>
+                        <span id="progress-percent" class="text-cyan-400 font-bold">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden p-0.5 border border-slate-700">
+                        <div id="progress-bar" class="bg-gradient-to-r from-cyan-500 via-emerald-400 to-purple-500 h-full rounded-full transition-all duration-500 w-0"></div>
+                    </div>
+                </div>
+
+                <div class="text-xs bg-slate-800/80 border border-slate-700/60 rounded-lg px-3 py-1.5 flex items-center gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                    <span id="progress-text" class="font-semibold text-slate-200">0 / 26 Grade</span>
+                </div>
+
+                <button id="reset-btn" title="Reset Progres" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-slate-800 rounded-lg transition-colors">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- Hero & Title -->
+        <section class="text-center max-w-3xl mx-auto space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/50 text-cyan-300 text-xs font-medium mb-1">
+                <span>Peta Jalan Pemrograman & AI Lengkap</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-100">
+                Dari Nol Hingga Menguasai <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-400 bg-clip-text text-transparent">Kecerdasan Buatan</span>
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base">
+                Pilih fase pembelajaran atau telusuri modul dari Grade A hingga Z untuk melihat kompetensi, alat (*tools*), dan hasil karya (*output*).
+            </p>
+        </section>
+
+        <!-- Phase Flowchart / Pipeline Diagram -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                    <i data-lucide="git-merge" class="w-4 h-4 text-cyan-400"></i>
+                    Diagram Alur Pembelajaran (4 Utama Phase)
+                </h3>
+                <span class="text-xs text-slate-500">Klik fase untuk memfilter grade</span>
+            </div>
+
+            <!-- Flow Chart Nodes -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+                <!-- Phase 1 -->
+                <button onclick="filterPhase(1)" id="phase-btn-1" class="phase-card text-left p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 relative group overflow-hidden glow-phase1">
+                    <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-cyan-950 text-cyan-300 border border-cyan-800/60">
+                            Grade A – F
+                        </span>
+                        <i data-lucide="monitor" class="w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-100 text-base mb-1">1. Fondasi Komputer</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Hardware, OS, OpenOffice, Internet Safety, & Computational Thinking.</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                        <span>Anak-anak / Pemula</span>
+                        <span class="font-semibold text-cyan-400">6 Grade</span>
+                    </div>
+                </button>
+
+                <!-- Phase 2 -->
+                <button onclick="filterPhase(2)" id="phase-btn-2" class="phase-card text-left p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 relative group overflow-hidden glow-phase2">
+                    <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-950 text-emerald-300 border border-emerald-800/60">
+                            Grade G – L
+                        </span>
+                        <i data-lucide="blocks" class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-100 text-base mb-1">2. Pemrograman Visual</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Scratch, Game Logic, App Design, & Visual AI Model Sederhana.</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                        <span>Logika Blok</span>
+                        <span class="font-semibold text-emerald-400">6 Grade</span>
+                    </div>
+                </button>
+
+                <!-- Phase 3 -->
+                <button onclick="filterPhase(3)" id="phase-btn-3" class="phase-card text-left p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 relative group overflow-hidden glow-phase3">
+                    <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-amber-950 text-amber-300 border border-amber-800/60">
+                            Grade M – R
+                        </span>
+                        <i data-lucide="code-2" class="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-100 text-base mb-1">3. Teks & Web Dev</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Python Dasar, HTML5, CSS3, JavaScript, & Git/GitHub.</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                        <span>SMP / Pemula Teks</span>
+                        <span class="font-semibold text-amber-400">6 Grade</span>
+                    </div>
+                </button>
+
+                <!-- Phase 4 -->
+                <button onclick="filterPhase(4)" id="phase-btn-4" class="phase-card text-left p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-purple-500/50 transition-all duration-300 relative group overflow-hidden glow-phase4">
+                    <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-purple-950 text-purple-300 border border-purple-800/60">
+                            Grade S – Z
+                        </span>
+                        <i data-lucide="brain-circuit" class="w-5 h-5 text-purple-400 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-100 text-base mb-1">4. AI & Software Eng</h4>
+                    <p class="text-xs text-slate-400 line-clamp-2">Python OOP, Full-Stack Web, Machine Learning, & Capstone AI.</p>
+                    <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                        <span>SMA / Lanjutan</span>
+                        <span class="font-semibold text-purple-400">8 Grade</span>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Interactive Filters and Search -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                <!-- Search Input -->
+                <div class="relative w-full sm:w-80">
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="search-input" placeholder="Cari topik, tools (misal: Python, Scratch)..."
+                           class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all">
+                </div>
+
+                <!-- Phase Filter Chips -->
+                <div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 custom-scrollbar">
+                    <button onclick="filterPhase('all')" id="chip-all" class="phase-chip text-xs font-semibold px-3.5 py-2 rounded-xl transition-all whitespace-nowrap bg-cyan-500 text-slate-950 shadow-md">
+                        Semua Grade (26)
+                    </button>
+                    <button onclick="filterPhase(1)" id="chip-1" class="phase-chip text-xs font-semibold px-3.5 py-2 rounded-xl text-slate-400 hover:bg-slate-800 transition-all whitespace-nowrap">
+                        Fase 1 (A–F)
+                    </button>
+                    <button onclick="filterPhase(2)" id="chip-2" class="phase-chip text-xs font-semibold px-3.5 py-2 rounded-xl text-slate-400 hover:bg-slate-800 transition-all whitespace-nowrap">
+                        Fase 2 (G–L)
+                    </button>
+                    <button onclick="filterPhase(3)" id="chip-3" class="phase-chip text-xs font-semibold px-3.5 py-2 rounded-xl text-slate-400 hover:bg-slate-800 transition-all whitespace-nowrap">
+                        Fase 3 (M–R)
+                    </button>
+                    <button onclick="filterPhase(4)" id="chip-4" class="phase-chip text-xs font-semibold px-3.5 py-2 rounded-xl text-slate-400 hover:bg-slate-800 transition-all whitespace-nowrap">
+                        Fase 4 (S–Z)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grade Cards Grid -->
+            <div id="grade-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Dynamically populated by JS -->
+            </div>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="hidden text-center py-12 space-y-3">
+                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mx-auto text-slate-400">
+                    <i data-lucide="file-question" class="w-6 h-6"></i>
+                </div>
+                <h4 class="text-slate-300 font-semibold">Tidak Ada Grade Ditemukan</h4>
+                <p class="text-xs text-slate-500">Coba ubah kata kunci pencarian atau pilih filter fase lain.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>Modul Kurikulum IT & AI Terstruktur A–Z • Berdasarkan Rekomendasi Perkembangan Kognitif</p>
+        </div>
+		<div class="max-w-7xl mx-auto px-4">
+            <p>© YAYASAN NUSANTARA MUDA ADNYANA (2026)</p>
+        </div>
+    </footer>
+
+    <!-- Detailed Grade Modal Drawer -->
+    <div id="grade-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl transform scale-95 transition-transform duration-300" id="modal-container">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-slate-800 flex items-start justify-between bg-slate-900/50" id="modal-header">
+                <div class="flex items-center gap-4">
+                    <div id="modal-badge" class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-2xl text-slate-950 shadow-md">
+                        A
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span id="modal-phase-tag" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-slate-300">FASE 1</span>
+                            <span id="modal-age" class="text-xs text-slate-400">Kelas 1-3 SD (6-9 Thn)</span>
+                        </div>
+                        <h3 id="modal-title" class="text-xl font-bold text-slate-100 mt-0.5">Digital Starter & Hardware</h3>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-200 p-1.5 rounded-lg hover:bg-slate-800 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="p-6 overflow-y-auto space-y-6 custom-scrollbar text-sm text-slate-300">
+                <!-- Deskripsi -->
+                <div>
+                    <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Deskripsi Modul</h5>
+                    <p id="modal-desc" class="text-slate-300 leading-relaxed">...</p>
+                </div>
+
+                <!-- Key Topics -->
+                <div>
+                    <h5 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Materi Utama / Pokok Bahasan</h5>
+                    <ul id="modal-topics" class="space-y-2">
+                        <!-- Dynamic list -->
+                    </ul>
+                </div>
+
+                <!-- Tools & Output Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                        <div class="flex items-center gap-2 text-cyan-400 font-semibold text-xs uppercase mb-1.5">
+                            <i data-lucide="wrench" class="w-4 h-4"></i>
+                            Tools & Teknologi
+                        </div>
+                        <p id="modal-tools" class="text-slate-200 font-medium">...</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                        <div class="flex items-center gap-2 text-emerald-400 font-semibold text-xs uppercase mb-1.5">
+                            <i data-lucide="trophy" class="w-4 h-4"></i>
+                            Output / Proyek Akhir
+                        </div>
+                        <p id="modal-output" class="text-slate-200 font-medium">...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-slate-800 bg-slate-950/40 flex items-center justify-between">
+                <button id="modal-check-btn" onclick="toggleCurrentModalGrade()" class="flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-xs transition-all">
+                    <i data-lucide="check-circle" class="w-4 h-4"></i>
+                    <span id="modal-check-text">Tandai Selesai</span>
+                </button>
+                <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        // Curriculum Data Source (Grade A-Z)
+        const gradesData = [
+            // PHASE 1: A-F
+            {
+                id: 'A', phase: 1, phaseName: 'Fase 1: Fondasi Komputer', ageGroup: 'Kelas 1-3 SD (6-9 Thn)',
+                title: 'Digital Starter & Hardware',
+                shortDesc: 'Mengenal komponen fisik komputer, fungsi CPU, input/output, serta ergonomi.',
+                desc: 'Modul awal untuk membangun fondasi pemahaman fisik terhadap perangkat komputer dan interaksi aman.',
+                topics: [
+                    'Mengenal CPU, Monitor, Keyboard, Mouse, RAM, & Storage',
+                    'Perangkat Input (Mikrofon, Touchscreen) vs Output (Speaker, Printer)',
+                    'Sikap duduk ergonomis & prosedur menyalakan/mematikan komputer (Shutdown)',
+                    'Latihan motorik: Navigasi mouse (Klik, Drag-and-drop) & latihan mengetik dasar'
+                ],
+                tools: 'PC / Laptop, Interaktif Typing Games',
+                output: 'Keterampilan Dasar Navigasi Komputer & Typing Test'
+            },
+            {
+                id: 'B', phase: 1, phaseName: 'Fase 1: Fondasi Komputer', ageGroup: 'Kelas 1-3 SD (6-9 Thn)',
+                title: 'Operating System & File Management',
+                shortDesc: 'Navigasi sistem operasi, manajemen direktori, dan format file dasar.',
+                desc: 'Memahami cara kerja OS dalam mengorganisir informasi dan file digital.',
+                topics: [
+                    'Antarmuka Desktop, Taskbar, Wallpaper, & Icon',
+                    'Struktur Folder/Direktori: Membuat, Mengubah Nama, & Menghapus Folder',
+                    'Format File Dasar: Teks (.txt), Gambar (.jpg, .png), Dokumen (.pdf)',
+                    'Praktik Menyimpan (Save) & Membuka Kembali Berkas Pekerjaan'
+                ],
+                tools: 'Windows Explorer / Linux File Manager',
+                output: 'Struktur Folder Rapi Berisi Berkas Latihan'
+            },
+            {
+                id: 'C', phase: 1, phaseName: 'Fase 1: Fondasi Komputer', ageGroup: 'Kelas 1-3 SD (6-9 Thn)',
+                title: 'Office Fundamentals: Word Processing',
+                shortDesc: 'Pengolahan kata menggunakan OpenOffice Writer / LibreOffice Writer.',
+                desc: 'Membuat dokumen teks pertama dengan pemformatan menarik dan gambar.',
+                topics: [
+                    'Mengenal Antarmuka OpenOffice Writer',
+                    'Format Teks: Font, Ukuran, Warna, Bold, Italic, Underline',
+                    'Penyisipan Gambar / ClipArt & Pengaturan Posisi (Text Wrap)',
+                    'Membuat Tabel Sederhana & Mewarnai Sel'
+                ],
+                tools: 'OpenOffice Writer / LibreOffice Writer',
+                output: 'Dokumen Biodata Kreatif & Jadwal Pelajaran Bergambar'
+            },
+            {
+                id: 'D', phase: 1, phaseName: 'Fase 1: Fondasi Komputer', ageGroup: 'Kelas 1-3 SD (6-9 Thn)',
+                title: 'Office Fundamentals: Presentation & Spreadsheet',
+                shortDesc: 'Dasar slide presentasi (Impress) & lembar kerja angka (Calc).',
+                desc: 'Mengenalkan penyampaian ide visual dan perhitungan matematika dasar secara otomatis.',
+                topics: [
+                    'Membuat Slide Presentasi dengan Transisi Sederhana (Impress)',
+                    'Pengenalan Baris, Kolom, & Sel pada Spreadsheet (Calc)',
+                    'Input Data Angka & Teks ke dalam Tabel',
+                    'Rumus Matematika Dasar: SUM, AVERAGE, Penjumlahan (+), Pengurangan (-)'
+                ],
+                tools: 'OpenOffice Impress & Calc',
+                output: 'Slide Presentasi Liburan & Tabel Perhitungan Sederhana'
+            },
+            {
+                id: 'E', phase: 1, phaseName: 'Fase 1: Fondasi Komputer', ageGroup: 'Kelas 1-3 SD (6-9 Thn)',
+                title: 'Internet Literacy & Online Safety',
+                shortDesc: 'Cara kerja Web Browser, Etika Digital (Netiquette), & Keamanan Akun.',
+                desc: 'Menjadi pengguna internet yang bijak, aman, dan terlindung dari risiko digital.',
+                topics: [
+                    'Mengenal Web Browser & Mesin Pencari (Google, Kid-safe search)',
+                    'Etika Berinternet (Netiquette) & Komunikasi Santun',
+                    'Keamanan Akun: Password Kuat & Kerahasiaan Data Pribadi',
+                    'Mengenali Phishing, Spam, & Bahaya Mengklik Link Sembarangan'
+                ],
+                tools: 'Web Browser, Safety Simulator',
+                output: 'Poster Digital Rules & Poster Internet Safety'
+            },
+            {
+                id: 'F', phase: 1, phaseName: 'Fase 1: Fondasi Komputer', ageGroup: 'Kelas 1-3 SD (6-9 Thn)',
+                title: 'Computational Thinking & Unplugged Logic',
+                shortDesc: 'Konsep berpikir komputasi tanpa layar komputer.',
+                desc: 'Melatih kemampuan memecahkan masalah melalui logika, pola, dan urutan instruksi.',
+                topics: [
+                    '4 Pilar CT: Dekomposisi, Pengenalan Pola, Abstraksi, & Algoritma',
+                    'Instruksi Berurutan (Sequencing) & Logika Teka-teki Papan',
+                    'Merancang Diagram Alir (Flowchart) Sederhana untuk Aktivitas Harian',
+                    'Debugging Logika: Menemukan Langkah Salah pada Instuksi'
+                ],
+                tools: 'Unplugged Puzzle Cards, Flowchart Board',
+                output: 'Peta Algoritma Aktivitas Harian & Solusi Teka-teki Logika'
+            },
+
+            // PHASE 2: G-L
+            {
+                id: 'G', phase: 2, phaseName: 'Fase 2: Pemrograman Visual', ageGroup: 'Kelas 4-6 SD (10-12 Thn)',
+                title: 'Visual Block Programming: Basics',
+                shortDesc: 'Pengenalan Scratch/ScratchJr, Sprite, Stage, dan Event Handling.',
+                desc: 'Mulai memprogram karakter visual dengan menyusun balok logika interaktif.',
+                topics: [
+                    'Mengenal Antarmuka Scratch: Canvas, Sprite List, Block Palette',
+                    'Sistem Koordinat (X, Y) untuk Gerakan Karakter',
+                    'Event Handling: "When Green Flag Clicked", "When Key Pressed"',
+                    'Membuat Animasi Dialog & Perubahan Costume/Look'
+                ],
+                tools: 'Scratch 3.0 / ScratchJr',
+                output: 'Kartu Ucapan Digital Interaktif & Animasi Dialog'
+            },
+            {
+                id: 'H', phase: 2, phaseName: 'Fase 2: Pemrograman Visual', ageGroup: 'Kelas 4-6 SD (10-12 Thn)',
+                title: 'Visual Block Programming: Logic & Control',
+                shortDesc: 'Variabel, kondisi (If-Else), dan perulangan (Loops) di Scratch.',
+                desc: 'Menambahkan logika kompleks untuk mengontrol alur permainan.',
+                topics: [
+                    'Perulangan: Forever, Repeat N Times, Repeat Until',
+                    'Kondisi Logika: IF-THEN, IF-THEN-ELSE',
+                    'Membuat & Mengelola Variabel: Skor, Waktu, Nyawa',
+                    'Operator Logika & Aritmatika (+, -, >, <, AND, OR)'
+                ],
+                tools: 'Scratch 3.0',
+                output: 'Game Catching Item / Game Ketangkasan Sederhana'
+            },
+            {
+                id: 'I', phase: 2, phaseName: 'Fase 2: Pemrograman Visual', ageGroup: 'Kelas 4-6 SD (10-12 Thn)',
+                title: 'Advanced Block Coding & Physics Sederhana',
+                shortDesc: 'Sensing, kloning sprite, efek suara, & simulasi gravitasi sederhana.',
+                desc: 'Meningkatkan kualitas game visual dengan interaksi objek tingkat lanjut.',
+                topics: [
+                    'Blok Sensing: Touching Color, Distance To, Mouse X/Y',
+                    'Teknik Kloning Sprite (Create Clone of Myself)',
+                    'Efek Suara Interaktif & Musik Latar (Sound Blocks)',
+                    'Simulasi Fisika Sederhana: Gravitasi Dasar & Lompatan (Jumping)'
+                ],
+                tools: 'Scratch 3.0',
+                output: 'Game Platformer 2D Sederhana'
+            },
+            {
+                id: 'J', phase: 2, phaseName: 'Fase 2: Pemrograman Visual', ageGroup: 'Kelas 4-6 SD (10-12 Thn)',
+                title: 'Interactive Media & App Design',
+                shortDesc: 'Desain antarmuka aplikasi HP sederhana dengan MIT App Inventor.',
+                desc: 'Merancang aplikasi seluler nyata yang dapat diinstal pada Smartphone Android.',
+                topics: [
+                    'Pengenalan UI/UX Mobile: Button, Label, TextBox, Canvas',
+                    'Pemrograman Blok Event Handler pada Aplikasi HP',
+                    'Menggunakan Component HP: Text-to-Speech, Sound, Accelerator Sensor',
+                    'Pengujian Aplikasi Menggunakan MIT Companion App'
+                ],
+                tools: 'MIT App Inventor / Tynker',
+                output: 'Aplikasi Soundboard & Kuis Interaktif Mobile'
+            },
+            {
+                id: 'K', phase: 2, phaseName: 'Fase 2: Pemrograman Visual', ageGroup: 'Kelas 4-6 SD (10-12 Thn)',
+                title: 'Visual AI & Model Machine Learning',
+                shortDesc: 'Melatih model AI sederhana menggunakan Google Teachable Machine.',
+                desc: 'Memahami cara komputer belajar mengenali pola gambar, suara, atau gestur.',
+                topics: [
+                    'Konsep Dasar AI & Machine Learning: Data Training, Model, & Testing',
+                    'Melatih Pengenal Gambar (Image Classification) via Webcam',
+                    'Melatih Pengenal Gestur Tangan & Suara',
+                    'Menghubungkan Model Teachable Machine ke Proyek Scratch'
+                ],
+                tools: 'Google Teachable Machine, Machine Learning for Kids',
+                output: 'Game Scratch Terintegrasi Kontrol Gestur Webcam'
+            },
+            {
+                id: 'L', phase: 2, phaseName: 'Fase 2: Pemrograman Visual', ageGroup: 'Kelas 4-6 SD (10-12 Thn)',
+                title: 'Transition: Block to Text Programming',
+                shortDesc: 'Jembatan antara pemrograman balok visual ke baris kode teks.',
+                desc: 'Mempersiapkan siswa beralih ke bahasa pemrograman profesional tanpa rasa takut.',
+                topics: [
+                    'Membandingkan Balok Scratch dengan Kode Teks Python/JavaScript',
+                    'Mengenal Sintaks & Aturan Penulisan Kode Teks (Semicolon, Indentasi)',
+                    'Mengetik Perintah Teks Pertama: `print()`, Input Teks',
+                    'Mengatasi Syntax Error Dasar'
+                ],
+                tools: 'Blockly Text Preview, Replit / Python IDLE',
+                output: 'Program Konversi Karakter Blok ke Kode Teks'
+            },
+
+            // PHASE 3: M-R
+            {
+                id: 'M', phase: 3, phaseName: 'Fase 3: Teks & Web Dev', ageGroup: 'Kelas 7-9 SMP (13-15 Thn)',
+                title: 'Python Basics: Variables & Data Types',
+                shortDesc: 'Sintaks dasar Python, tipe data, & operator matematika/pembanding.',
+                desc: 'Memulai bahasa pemrograman Python murni berbasis teks.',
+                topics: [
+                    'Instalasi Python, Code Editor (VS Code / Replit), & Python Shell',
+                    'Fungsi Output `print()` & Input `input()`',
+                    'Tipe Data Utama: String, Integer, Float, Boolean',
+                    'Operator Aritmatika, Penugasan, & Pembanding'
+                ],
+                tools: 'Python 3, VS Code / Replit',
+                output: 'Program CLI Kalkulator Cerdas & Chatbot Teks Sederhana'
+            },
+            {
+                id: 'N', phase: 3, phaseName: 'Fase 3: Teks & Web Dev', ageGroup: 'Kelas 7-9 SMP (13-15 Thn)',
+                title: 'Python Control Structure & Functions',
+                shortDesc: 'Percabangan (If-Elif-Else), Perulangan (For/While), & Fungsi.',
+                desc: 'Membangun alur logika program Python yang lebih kompleks dan terstruktur.',
+                topics: [
+                    'Percabangan Logika: `if`, `elif`, `else`',
+                    'Perulangan: `for` loop dengan `range()`, `while` loop',
+                    'Membuat Fungsi Sendiri (`def`) & Parameter / Return Value',
+                    'Handling Error Dasar (`try - except`)'
+                ],
+                tools: 'Python 3, VS Code',
+                output: 'Game CLI Tebak Angka & Sistem Kasir Sederhana'
+            },
+            {
+                id: 'O', phase: 3, phaseName: 'Fase 3: Teks & Web Dev', ageGroup: 'Kelas 7-9 SMP (13-15 Thn)',
+                title: 'Web Foundations: HTML5',
+                shortDesc: 'Struktur dasar dokumen web, tag, teks, gambar, tautan, & formulir.',
+                desc: 'Membangun kerangka dasar halaman web interaktif.',
+                topics: [
+                    'Anatomi Dokumen HTML: `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`',
+                    'Heading (`h1-h6`), Paragraf (`p`), List (`ul`, `ol`, `li`)',
+                    'Elemen Media & Tautan: `<img>`, `<a>`, `<iframe>`',
+                    'Formulir Web: `<input>`, `<button>`, `<textarea>`, `<select>`'
+                ],
+                tools: 'HTML5, VS Code, Browser Developer Tools',
+                output: 'Halaman Web Biodata / Profil Sekolah Terstruktur'
+            },
+            {
+                id: 'P', phase: 3, phaseName: 'Fase 3: Teks & Web Dev', ageGroup: 'Kelas 7-9 SMP (13-15 Thn)',
+                title: 'Web Styling: CSS3',
+                shortDesc: 'Mendesain tampilan web dengan CSS3, Flexbox, & Responsive Layout.',
+                desc: 'Mewarnai dan mengatur tata letak web agar tampil modern di berbagai perangkat.',
+                topics: [
+                    'Selector CSS (Tag, Class, ID) & Properties (Color, Font, Background)',
+                    'Konsep Box Model: Content, Padding, Border, Margin',
+                    'Layout Modern: Flexbox Dasar (Justify, Align, Direction)',
+                    'Responsive Design Dasar menggunakan Media Queries'
+                ],
+                tools: 'CSS3, VS Code',
+                output: 'Website Portofolio Pribadi Responsive & Stylis'
+            },
+            {
+                id: 'Q', phase: 3, phaseName: 'Fase 3: Teks & Web Dev', ageGroup: 'Kelas 7-9 SMP (13-15 Thn)',
+                title: 'JavaScript & Dynamic Web',
+                shortDesc: 'Membuat halaman web interaktif dengan JavaScript & DOM Manipulation.',
+                desc: 'Memberikan "nyawa" dan logika interaktif pada tampilan HTML & CSS.',
+                topics: [
+                    'Variabel JavaScript (`let`, `const`) & Fungsi (`function`)',
+                    'DOM Selection: `document.querySelector()`, `getElementById()`',
+                    'Event Listener: Klik Tombol, Hover, Input Teks',
+                    'Manipulasi Elemen Web: Mengubah Teks, Warna, & Class secara Dinamis'
+                ],
+                tools: 'JavaScript ES6, VS Code Browser Console',
+                output: 'Aplikasi Web Interactive To-Do List & Calculator'
+            },
+            {
+                id: 'R', phase: 3, phaseName: 'Fase 3: Teks & Web Dev', ageGroup: 'Kelas 7-9 SMP (13-15 Thn)',
+                title: 'Version Control & Collaboration (Git & GitHub)',
+                shortDesc: 'Manajemen versi kode dengan Git dan mempublikasikan karya ke GitHub.',
+                desc: 'Mengenal standar kerja pengembang perangkat lunak profesional.',
+                topics: [
+                    'Konsep Version Control System & Perintah Git (`git init`, `add`, `commit`)',
+                    'Membuat Repositori di GitHub',
+                    'Mengunggah Kode Local ke Remote Repo (`git push`, `pull`)',
+                    'Mempublikasikan Website Gratis menggunakan GitHub Pages'
+                ],
+                tools: 'Git, GitHub, GitHub Pages',
+                output: 'Website Portofolio Online Terpublikasi di Internet'
+            },
+
+            // PHASE 4: S-Z
+            {
+                id: 'S', phase: 4, phaseName: 'Fase 4: AI & Software Eng', ageGroup: 'Kelas 10-12 SMA (16-18 Thn)',
+                title: 'Python Advanced & Data Structures',
+                shortDesc: 'Struktur data lanjut Python (List, Dict, Tuple, Set) & File I/O.',
+                desc: 'Menguasai manipulasi data dalam memori dan penyimpanan berkas.',
+                topics: [
+                    'Struktur Data Lanjut: List Comprehension, Dictionary, Tuple, Set',
+                    'Manipulasi String Lanjut & Regular Expressions (Regex) Dasar',
+                    'Membaca & Memproses Berkas External (`File I/O`: `.txt`, `.csv`, `.json`)',
+                    'Algoritma Dasar: Linear Search, Binary Search, & Bubble Sort'
+                ],
+                tools: 'Python 3, VS Code',
+                output: 'Sistem Pengolah Data CSV & File Manager Otomatis'
+            },
+            {
+                id: 'T', phase: 4, phaseName: 'Fase 4: AI & Software Eng', ageGroup: 'Kelas 10-12 SMA (16-18 Thn)',
+                title: 'Object-Oriented Programming (OOP)',
+                shortDesc: 'Konsep Pemrograman Berorientasi Objek di Python.',
+                desc: 'Merancang arsitektur kode berskala besar yang rapi dan mudah dirawat.',
+                topics: [
+                    'Konsep Kelas (`Class`) & Objek (`Object`)',
+                    'Konstruktor (`__init__`), Atribut, & Metode (`Methods`)',
+                    'Prinsip OOP: Enkapsulasi (Encapsulation)',
+                    'Pewarisan (`Inheritance`) & Polimorfisme (`Polymorphism`)'
+                ],
+                tools: 'Python 3, OOP Principles',
+                output: 'Simulasi Sistem Bank / Game RPG Berbasis Teks OOP'
+            },
+            {
+                id: 'U', phase: 4, phaseName: 'Fase 4: AI & Software Eng', ageGroup: 'Kelas 10-12 SMA (16-18 Thn)',
+                title: 'Backend Development & Database',
+                shortDesc: 'Membuat REST API dengan Python (Flask/FastAPI) & Database SQL.',
+                desc: 'Membangun sistem logika server dan penyimpanan data permanen.',
+                topics: [
+                    'Konsep Arsitektur Client-Server & Protokol HTTP (GET, POST, PUT, DELETE)',
+                    'Membuat Web Server & REST API Sederhana (Flask / FastAPI)',
+                    'Dasar Relational Database: SQL Query (`SELECT`, `INSERT`, `UPDATE`, `DELETE`)',
+                    'Menghubungkan Aplikasi Python ke Database SQLite'
+                ],
+                tools: 'FastAPI / Flask, SQLite, DB Browser, Postman',
+                output: 'Backend REST API Sistem Manajemen Inventaris'
+            },
+            {
+                id: 'V', phase: 4, phaseName: 'Fase 4: AI & Software Eng', ageGroup: 'Kelas 10-12 SMA (16-18 Thn)',
+                title: 'Full-Stack Integration',
+                shortDesc: 'Menghubungkan Frontend Web (HTML/JS) dengan Backend API & Database.',
+                desc: 'Membangun aplikasi web utuh berfitur lengkap secara end-to-end.',
+                topics: [
+                    'Pengambilan Data Async dari JS ke API menggunakan `fetch()`',
+                    'Autentikasi Pengguna Dasar (Login, Register, Session)',
+                    'Integrasi CRUD (Create, Read, Update, Delete) Utuh',
+                    'Penanganan Error Full-stack & Validasi Input'
+                ],
+                tools: 'HTML/CSS/JS, FastAPI/Flask, SQLite',
+                output: 'Aplikasi Web Full-Stack (misal: Portal Berita / Notes App)'
+            },
+            {
+                id: 'W', phase: 4, phaseName: 'Fase 4: AI & Software Eng', ageGroup: 'Kelas 10-12 SMA (16-18 Thn)',
+                title: 'Data Science Fundamentals',
+                shortDesc: 'Analisis & Visualisasi Data menggunakan NumPy, Pandas, & Matplotlib.',
+                desc: 'Mengolah kumpulan data besar untuk mengekstrak informasi dan wawasan bisnis.',
+                topics: [
+                    'Komputasi Numerik dengan NumPy Array',
+                    'Manipulasi Dataframe dengan Pandas (Filtering, Groupby, Cleaning)',
+                    'Visualisasi Data Grafik (Line, Bar, Scatter) dengan Matplotlib/Seaborn',
+                    'Exploratory Data Analysis (EDA) pada Dataset Nyata'
+                ],
+                tools: 'Jupyter Notebook / Google Colab, Pandas, Matplotlib',
+                output: 'Laporan Analisis Data & Dashboard Grafik Visual'
+            },
+            {
+                id: 'X', phase: 4, phaseName: 'Fase 4: AI & Software Eng', ageGroup: 'Kelas 10-12 SMA (16-18 Thn)',
+                title: 'Machine Learning Core',
+                shortDesc: 'Konsep Supervised & Unsupervised Learning dengan Scikit-Learn.',
+                desc: 'Melatih komputer memprediksi masa depan berdasarkan histori data.',
+                topics: [
+                    'Konsep Machine Learning Workflow: Data Preprocessing, Split, Training, Evaluation',
+                    'Supervised Learning: Regresi Linear & Klasifikasi (Decision Tree, KNN)',
+                    'Unsupervised Learning: Clustering (K-Means)',
+                    'Evaluasi Model: Akurasi, Precision, Recall'
+                ],
+                tools: 'Scikit-Learn, Google Colab, Python',
+                output: 'Model AI Prediksi Harga Rumah / Klasifikasi Email Spam'
+            },
+            {
+                id: 'Y', phase: 4, phaseName: 'Fase 4: AI & Software Eng', ageGroup: 'Kelas 10-12 SMA (16-18 Thn)',
+                title: 'Applied AI & Prompt Engineering',
+                shortDesc: 'Memanfaatkan API AI Modern (OpenAI/Gemini) & NLP.',
+                desc: 'Mengintegrasikan kemampuan kecerdasan buatan canggih ke dalam aplikasi buatan sendiri.',
+                topics: [
+                    'Integrasi API Large Language Models (LLM API: OpenAI / Gemini)',
+                    'Teknik Prompt Engineering Efektif untuk Pengembang',
+                    'Pemrosesan Teks & Natural Language Processing (NLP) Dasar',
+                    'Membangun Chatbot Cerdas dengan Context Memory'
+                ],
+                tools: 'Gemini / OpenAI API, Python, LangChain Dasar',
+                output: 'Aplikasi Asisten AI / Chatbot Pembelajaran Pintar'
+            },
+            {
+                id: 'Z', phase: 4, phaseName: 'Fase 4: AI & Software Eng', ageGroup: 'Kelas 10-12 SMA (16-18 Thn)',
+                title: 'AI Engineering & Capstone Project',
+                shortDesc: 'Proyek akhir integrasi sistem IT + AI & Deployment ke Cloud.',
+                desc: 'Puncak pembelajaran: Membangun produk digital berdampak nyata yang dapat diakses publik.',
+                topics: [
+                    'Perancangan Sistem Produk Digital (Problem Definition, Architecture)',
+                    'Pengembangan Aplikasi Terintegrasi Web + Machine Learning / AI API',
+                    'Deployment Aplikasi ke Cloud Platform (Render, Vercel, atau HuggingFace)',
+                    'Presentasi Produk, Dokumentasi README, & Portofolio Akhir'
+                ],
+                tools: 'Full Stack + AI Tech Stack, Git, Cloud Hosting',
+                output: 'Proyek Capstone Sistem AI Solutif Ter-deploy Online'
+            }
+        ];
+
+        // State Management
+        let completedGrades = new Set(JSON.parse(localStorage.getItem('it_curriculum_progress') || '[]'));
+        let activePhaseFilter = 'all';
+        let searchQuery = '';
+        let currentModalGradeId = null;
+
+        // Color maps per phase
+        const phaseColors = {
+            1: { bg: 'bg-cyan-500', text: 'text-cyan-400', border: 'border-cyan-500/30', badgeBg: 'bg-cyan-500 text-slate-950', glow: 'hover:border-cyan-500/60' },
+            2: { bg: 'bg-emerald-500', text: 'text-emerald-400', border: 'border-emerald-500/30', badgeBg: 'bg-emerald-500 text-slate-950', glow: 'hover:border-emerald-500/60' },
+            3: { bg: 'bg-amber-500', text: 'text-amber-400', border: 'border-amber-500/30', badgeBg: 'bg-amber-500 text-slate-950', glow: 'hover:border-amber-500/60' },
+            4: { bg: 'bg-purple-500', text: 'text-purple-400', border: 'border-purple-500/30', badgeBg: 'bg-purple-500 text-slate-950', glow: 'hover:border-purple-500/60' }
+        };
+
+        // DOM Elements
+        const gradeGrid = document.getElementById('grade-grid');
+        const searchInput = document.getElementById('search-input');
+        const progressBar = document.getElementById('progress-bar');
+        const progressPercent = document.getElementById('progress-percent');
+        const progressText = document.getElementById('progress-text');
+        const emptyState = document.getElementById('empty-state');
+
+        // Modal Elements
+        const modal = document.getElementById('grade-modal');
+        const modalContainer = document.getElementById('modal-container');
+        const modalBadge = document.getElementById('modal-badge');
+        const modalPhaseTag = document.getElementById('modal-phase-tag');
+        const modalAge = document.getElementById('modal-age');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalTopics = document.getElementById('modal-topics');
+        const modalTools = document.getElementById('modal-tools');
+        const modalOutput = document.getElementById('modal-output');
+        const modalCheckBtn = document.getElementById('modal-check-btn');
+        const modalCheckText = document.getElementById('modal-check-text');
+
+        // Initialize App
+        function init() {
+            renderGrades();
+            updateProgressUI();
+            setupEventListeners();
+            lucide.createIcons();
+        }
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                renderGrades();
+            });
+
+            document.getElementById('reset-btn').addEventListener('click', () => {
+                if (confirm('Apakah Anda yakin ingin mereset seluruh progres pembelajaran?')) {
+                    completedGrades.clear();
+                    saveProgress();
+                    renderGrades();
+                    updateProgressUI();
+                }
+            });
+
+            // Close modal on escape
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            // Close modal on click outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+
+        // Save progress to localStorage
+        function saveProgress() {
+            localStorage.setItem('it_curriculum_progress', JSON.stringify(Array.from(completedGrades)));
+        }
+
+        // Filter Phase Function
+        function filterPhase(phase) {
+            activePhaseFilter = phase;
+
+            // Update Chip UI Active States
+            document.querySelectorAll('.phase-chip').forEach(chip => {
+                chip.classList.remove('bg-cyan-500', 'text-slate-950', 'shadow-md');
+                chip.classList.add('text-slate-400');
+            });
+
+            const activeChip = document.getElementById(`chip-${phase}`);
+            if (activeChip) {
+                activeChip.classList.remove('text-slate-400');
+                activeChip.classList.add('bg-cyan-500', 'text-slate-950', 'shadow-md');
+            }
+
+            renderGrades();
+        }
+
+        // Toggle Grade Completed Status
+        function toggleGradeComplete(gradeId, event) {
+            if (event) event.stopPropagation();
+
+            if (completedGrades.has(gradeId)) {
+                completedGrades.delete(gradeId);
+            } else {
+                completedGrades.add(gradeId);
+            }
+
+            saveProgress();
+            updateProgressUI();
+            renderGrades();
+
+            // If modal is open for this grade, update modal button UI
+            if (currentModalGradeId === gradeId) {
+                updateModalCheckButton(gradeId);
+            }
+        }
+
+        // Update Global Progress Bar
+        function updateProgressUI() {
+            const count = completedGrades.size;
+            const percent = Math.round((count / 26) * 100);
+
+            progressBar.style.width = `${percent}%`;
+            progressPercent.innerText = `${percent}%`;
+            progressText.innerText = `${count} / 26 Grade`;
+        }
+
+        // Render Grade Cards Grid
+        function renderGrades() {
+            gradeGrid.innerHTML = '';
+
+            const filtered = gradesData.filter(item => {
+                const matchesPhase = activePhaseFilter === 'all' || item.phase === activePhaseFilter;
+                const matchesSearch = searchQuery === '' ||
+                    item.title.toLowerCase().includes(searchQuery) ||
+                    item.id.toLowerCase() === searchQuery ||
+                    item.shortDesc.toLowerCase().includes(searchQuery) ||
+                    item.tools.toLowerCase().includes(searchQuery) ||
+                    item.topics.some(t => t.toLowerCase().includes(searchQuery));
+
+                return matchesPhase && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            filtered.forEach(item => {
+                const isCompleted = completedGrades.has(item.id);
+                const color = phaseColors[item.phase];
+
+                const card = document.createElement('div');
+                card.className = `group relative p-5 rounded-2xl bg-slate-900 border ${isCompleted ? 'border-emerald-500/50 bg-emerald-950/10' : 'border-slate-800'} ${color.glow} transition-all duration-300 cursor-pointer flex flex-col justify-between`;
+                card.onclick = () => openModal(item.id);
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Card Top Bar -->
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-9 h-9 rounded-xl ${color.badgeBg} font-black text-lg flex items-center justify-center shadow-md">
+                                    ${item.id}
+                                </span>
+                                <div>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Fase ${item.phase}</span>
+                                    <span class="text-xs text-slate-500">${item.ageGroup}</span>
+                                </div>
+                            </div>
+
+                            <button onclick="toggleGradeComplete('${item.id}', event)" title="${isCompleted ? 'Tandai Belum Selesai' : 'Tandai Selesai'}"
+                                    class="p-2 rounded-xl transition-colors ${isCompleted ? 'bg-emerald-500 text-slate-950 font-bold' : 'bg-slate-800 text-slate-400 hover:text-slate-200'}">
+                                <i data-lucide="${isCompleted ? 'check-circle-2' : 'circle'}" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Title & Desc -->
+                        <h4 class="font-bold text-slate-100 text-base mb-1.5 group-hover:${color.text} transition-colors">
+                            ${item.title}
+                        </h4>
+                        <p class="text-xs text-slate-400 line-clamp-2 mb-4 leading-relaxed">
+                            ${item.shortDesc}
+                        </p>
+                    </div>
+
+                    <!-- Footer Info -->
+                    <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                        <span class="text-slate-500 truncate max-w-[180px]">
+                            <i data-lucide="wrench" class="w-3 h-3 inline mr-1 text-slate-400"></i>${item.tools}
+                        </span>
+                        <span class="text-cyan-400 font-medium group-hover:underline flex items-center gap-1 shrink-0">
+                            Detail <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        </span>
+                    </div>
+                `;
+
+                gradeGrid.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Open Detail Modal
+        function openModal(gradeId) {
+            const grade = gradesData.find(g => g.id === gradeId);
+            if (!grade) return;
+
+            currentModalGradeId = gradeId;
+            const color = phaseColors[grade.phase];
+
+            // Populate Modal Fields
+            modalBadge.innerText = grade.id;
+            modalBadge.className = `w-12 h-12 rounded-xl flex items-center justify-center font-black text-2xl shadow-md ${color.badgeBg}`;
+
+            modalPhaseTag.innerText = `FASE ${grade.phase}: ${grade.phaseName.split(':')[1] || ''}`;
+            modalAge.innerText = grade.ageGroup;
+            modalTitle.innerText = grade.title;
+            modalDesc.innerText = grade.desc;
+            modalTools.innerText = grade.tools;
+            modalOutput.innerText = grade.output;
+
+            // Render Topics List
+            modalTopics.innerHTML = '';
+            grade.topics.forEach(topic => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start gap-2.5 text-xs text-slate-300';
+                li.innerHTML = `
+                    <i data-lucide="check-square" class="w-4 h-4 ${color.text} shrink-0 mt-0.5"></i>
+                    <span>${topic}</span>
+                `;
+                modalTopics.appendChild(li);
+            });
+
+            updateModalCheckButton(gradeId);
+
+            // Show Modal with Animation
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContainer.classList.remove('scale-95');
+            modalContainer.classList.add('scale-100');
+
+            lucide.createIcons();
+        }
+
+        // Close Modal
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
+            currentModalGradeId = null;
+        }
+
+        // Toggle Grade state inside Modal
+        function toggleCurrentModalGrade() {
+            if (currentModalGradeId) {
+                toggleGradeComplete(currentModalGradeId);
+            }
+        }
+
+        // Update Modal Check Button Style
+        function updateModalCheckButton(gradeId) {
+            const isCompleted = completedGrades.has(gradeId);
+            if (isCompleted) {
+                modalCheckBtn.className = 'flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-xs bg-emerald-500 text-slate-950 shadow-md transition-all';
+                modalCheckText.innerText = 'Selesai (Klik untuk Batal)';
+            } else {
+                modalCheckBtn.className = 'flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-xs bg-slate-800 text-slate-200 hover:bg-slate-700 transition-all';
+                modalCheckText.innerText = 'Tandai Sebagai Selesai';
+            }
+        }
+
+        // Run on load
+        window.onload = init;
+    </script>
+</body>
+</html>
